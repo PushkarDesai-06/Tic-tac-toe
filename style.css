@@ -13,10 +13,12 @@
 body {
   /* background-color: #254e70; */
   background-image: url(Assets/gradient.jpg);
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .title {
   display: inline-block;
+  font-family: "Julius Sans One", sans-serif;
   position: relative;
   left: 50vw;
   transform: translate(-50%);
@@ -33,6 +35,9 @@ body {
 }
 
 .playArea {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 200;
+  font-style: normal;
   display: flex;
   justify-content: center;
   position: relative;
@@ -79,6 +84,9 @@ body {
 }
 
 .currentPlayer span {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   border: 2px solid white;
   padding: 1rem;
   background-color: #472d7c;
