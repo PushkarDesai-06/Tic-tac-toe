@@ -50,8 +50,8 @@ body {
 }
 
 .playArea .box {
-  height: 125px;
-  width: 125px;
+  height: 100px;
+  width: 100px;
   background-color: #8ee3ef;
   /* border: 5px solid #254e70; */
   background: rgba(255, 250, 250, 0.25);
