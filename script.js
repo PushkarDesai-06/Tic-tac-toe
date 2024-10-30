@@ -5,6 +5,7 @@ let title = document.querySelector(".title")
 let currPlayer = 'X'
 let isPaused = false
 let currentPlayer = document.querySelector(".currentPlayer span")
+let stat = 'ongoing'  //complete, ongoing
 
 let xList = []
 let oList = []
@@ -59,21 +60,36 @@ for (let i = 0; i < playArea.length; i++) {
             if (checkWin(playerList)) {
 
                 alert(`${currPlayer} WON!!`)
+                stat = 'complete'
 
                 isPaused = true
             }
             else if (xList.length + oList.length == 9) {
 
                 alert('Its a Draw : |')
+                stat = 'complete'
                 isPaused = true
             }
             else {
                 changePlayer()
             }
         }
-        // console.info(playArea[i]);
+
 
     })
 
 
 }
+
+let restart = document.querySelector(".restart")
+
+restart.addEventListener("click", () => {
+    for (let i = 0; i < playArea.length; i++) {
+        playArea[i].innerText = ''
+        currPlayer = 'X'
+        xList = []
+        oList = []
+        currentPlayer.innerText = 'X'
+        isPaused = false
+    }
+})
