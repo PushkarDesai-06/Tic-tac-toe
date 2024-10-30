@@ -5,6 +5,9 @@ let currPlayer = 'X'
 let isPaused = false
 let currentPlayer = document.querySelector(".currentPlayer span")
 let stat = 'ongoing'  //complete, ongoing
+let winText = document.querySelector('.winText')
+
+let action = document.querySelector('.action')
 
 let xList = []
 let oList = []
@@ -42,16 +45,20 @@ for (let i = 0; i < playArea.length; i++) {
 
             if (checkWin(playerList)) {
 
-                alert(`${currPlayer} WON!!`)
+                // alert(`${currPlayer} WON!!`)
                 stat = 'complete'
 
+                action.style.visibility = 'visible'
+                winText.innerText = `${currPlayer} WON!!`
                 isPaused = true
             }
             else if (xList.length + oList.length == 9) {
 
-                alert('Its a Draw : |')
+                // alert('Its a Draw : |')
                 stat = 'complete'
                 isPaused = true
+                action.style.visibility = 'visible'
+                winText.innerText = 'Its a Draw : |'
             }
             else {
                 changePlayer()
@@ -65,6 +72,8 @@ for (let i = 0; i < playArea.length; i++) {
 }
 
 let restart = document.querySelector(".restart")
+let restartAct = document.querySelector(".restart.act")
+
 
 restart.addEventListener("click", () => {
     for (let i = 0; i < playArea.length; i++) {
@@ -73,6 +82,18 @@ restart.addEventListener("click", () => {
         xList = []
         oList = []
         currentPlayer.innerText = 'X'
+        action.style.visibility = 'hidden'
+        isPaused = false
+    }
+})
+restartAct.addEventListener("click", () => {
+    for (let i = 0; i < playArea.length; i++) {
+        playArea[i].innerText = ''
+        currPlayer = 'X'
+        xList = []
+        oList = []
+        currentPlayer.innerText = 'X'
+        action.style.visibility = 'hidden'
         isPaused = false
     }
 })
